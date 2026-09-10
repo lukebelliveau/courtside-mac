@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "retrieved_on": "2026-09-10",
+  "download_directory": "work/assets",
+  "models": [
+    {
+      "filename": "ebard-rfdetr-nano-basketball.pth",
+      "kind": "detector",
+      "repository": "GabrieleGiudici/E-BARD-detection-models",
+      "revision": "3f4789c4431aa73269f60107a4ba0a5f86b7af8b",
+      "remote_path": "BODD_rf-detr-nano_0000/checkpoint_best_total.pth",
+      "architecture": "RF-DETR Nano",
+      "license": "CC-BY-4.0",
+      "resolution": 704,
+      "classes": {
+        "0": "basketball",
+        "1": "hoop",
+        "2": "player",
+        "3": "referee"
+      },
+      "url": "https://huggingface.co/GabrieleGiudici/E-BARD-detection-models/resolve/3f4789c4431aa73269f60107a4ba0a5f86b7af8b/BODD_rf-detr-nano_0000/checkpoint_best_total.pth",
+      "bytes": 120811190,
+      "sha256": "759968ecf8f83663c85de3d881713e072f4a9dd0ea2f136b082878b1e4fe2400"
+    },
+    {
+      "filename": "yolo11n-basketball-court-keypoints.pt",
+      "kind": "court",
+      "repository": "koppolusameer/yolo11n-basketball-court-keypoints",
+      "revision": "6cb899251439982067a81baa225b33f45f335981",
+      "remote_path": "best.pt",
+      "architecture": "YOLO11n pose",
+      "license": "AGPL-3.0",
+      "keypoint_slots": 48,
+      "url": "https://huggingface.co/koppolusameer/yolo11n-basketball-court-keypoints/resolve/6cb899251439982067a81baa225b33f45f335981/best.pt",
+      "bytes": 7934664,
+      "sha256": "68e5faf5fb5388cf83477238abe22e9824a69fb33a4cf34f79ab61858f410064"
+    }
+  ],
+  "clips": [
+    {
+      "filename": "boston-celtics-new-york-knicks-game-1-q1-01.54-01.48.mp4",
+      "kind": "video",
+      "url": "https://drive.google.com/uc?export=download&id=1GYxJGG8_OT5wlHxcYjUb62P2rjHeTg7p",
+      "source_folder": "https://drive.google.com/drive/folders/1eDJYqQ77Fytz15tKGdJCMeYSgmoQ-2-H",
+      "duration_seconds": 6.378667,
+      "bytes": 8297338,
+      "sha256": "fc34e6971cfa3581448b7e458ba8393f4e56262cc159d8ee9c9b9ba75933ba01",
+      "license": "No separate open license identified for underlying NBA broadcast footage."
+    },
+    {
+      "filename": "boston-celtics-new-york-knicks-game-1-q1-03.16-03.11.mp4",
+      "kind": "video",
+      "url": "https://drive.google.com/uc?export=download&id=1Gm-QSkfXngzEnkrQEdE1HsLPG3cU-KCV",
+      "source_folder": "https://drive.google.com/drive/folders/1eDJYqQ77Fytz15tKGdJCMeYSgmoQ-2-H",
+      "duration_seconds": 5.034667,
+      "bytes": 6596558,
+      "sha256": "6366e2186cd50364d40850889c566ea60c8867961352dca185280e63bb811c3e",
+      "license": "No separate open license identified for underlying NBA broadcast footage."
+    },
+    {
+      "filename": "boston-celtics-new-york-knicks-game-1-q1-04.28-04.20.mp4",
+      "kind": "video",
+      "url": "https://drive.google.com/uc?export=download&id=1It3wz3eoGcjo6tI9OGUt3X69ZK6x5SNK",
+      "source_folder": "https://drive.google.com/drive/folders/1eDJYqQ77Fytz15tKGdJCMeYSgmoQ-2-H",
+      "duration_seconds": 8.0,
+      "bytes": 10443619,
+      "sha256": "690d5f94e1266e2c3b0935c2e76eee3c2e9831737cdcdea15930e58a7474500d",
+      "license": "No separate open license identified for underlying NBA broadcast footage."
+    },
+    {
+      "filename": "boston-celtics-new-york-knicks-game-1-q1-04.44-04.39.mp4",
+      "kind": "video",
+      "url": "https://drive.google.com/uc?export=download&id=1hx7_rJAmgBjt6PgHH8wh49OwUh2Lhe9f",
+      "source_folder": "https://drive.google.com/drive/folders/1eDJYqQ77Fytz15tKGdJCMeYSgmoQ-2-H",
+      "duration_seconds": 4.842667,
+      "bytes": 6156208,
+      "sha256": "bdc2d732f1b5e94831062e72ac372c8784bffe91c140f5939de1be548f4814b4",
+      "license": "No separate open license identified for underlying NBA broadcast footage."
+    },
+    {
+      "filename": "boston-celtics-new-york-knicks-game-1-q1-05.13-05.09.mp4",
+      "kind": "video",
+      "url": "https://drive.google.com/uc?export=download&id=1fPEw_w51nNQeBHh_GYhRyThVg71V1trn",
+      "source_folder": "https://drive.google.com/drive/folders/1eDJYqQ77Fytz15tKGdJCMeYSgmoQ-2-H",
+      "duration_seconds": 3.968,
+      "bytes": 5251332,
+      "sha256": "44b150e778fd3be898a25bc1ebfe27db13684166c195b1ebaaf7f9f00edae98a",
+      "license": "No separate open license identified for underlying NBA broadcast footage."
+    },
+    {
+      "filename": "boston-celtics-new-york-knicks-game-1-q1-06.00-05.54.mp4",
+      "kind": "video",
+      "url": "https://drive.google.com/uc?export=download&id=1zwnAE4jHVI0qH7ioDFnzX98XtOocAUbH",
+      "source_folder": "https://drive.google.com/drive/folders/1eDJYqQ77Fytz15tKGdJCMeYSgmoQ-2-H",
+      "duration_seconds": 6.101333,
+      "bytes": 7956046,
+      "sha256": "519fe1ef40dc6d4d00de392a058a67b12b729a59c2a0ba7eb32b92fa47a21fef",
+      "license": "No separate open license identified for underlying NBA broadcast footage."
+    },
+    {
+      "filename": "boston-celtics-new-york-knicks-game-1-q1-07.41-07.34.mp4",
+      "kind": "video",
+      "url": "https://drive.google.com/uc?export=download&id=1wQMSO-C4jOm6BBIVUuJ_6Uqf0QLdbJHD",
+      "source_folder": "https://drive.google.com/drive/folders/1eDJYqQ77Fytz15tKGdJCMeYSgmoQ-2-H",
+      "duration_seconds": 7.04,
+      "bytes": 9276239,
+      "sha256": "02406ee0fb7bfc17acb83214881ad5c0a7e84206ec6a7716ca22f20f8c1920b3",
+      "license": "No separate open license identified for underlying NBA broadcast footage."
+    },
+    {
+      "filename": "boston-celtics-new-york-knicks-game-1-q2-08.09-08.03.mp4",
+      "kind": "video",
+      "url": "https://drive.google.com/uc?export=download&id=1w9e1zCZtXtOmi6C4m-1BJJzTpa3znkbB",
+      "source_folder": "https://drive.google.com/drive/folders/1eDJYqQ77Fytz15tKGdJCMeYSgmoQ-2-H",
+      "duration_seconds": 5.568,
+      "bytes": 7319631,
+      "sha256": "11fc8879126ef8c3cdeffc3835f57792584d5a163a73226a9c57793e2321c462",
+      "license": "No separate open license identified for underlying NBA broadcast footage."
+    },
+    {
+      "filename": "boston-celtics-new-york-knicks-game-1-q2-08.43-08.38.mp4",
+      "kind": "video",
+      "url": "https://drive.google.com/uc?export=download&id=1zaltcB_-j8Pzxh8rBuvAV2o0Ngf3IX0I",
+      "source_folder": "https://drive.google.com/drive/folders/1eDJYqQ77Fytz15tKGdJCMeYSgmoQ-2-H",
+      "duration_seconds": 6.784,
+      "bytes": 8770496,
+      "sha256": "f997af194e584c9c695dd05b9b731a5fa93ad58df3afafef6ddfdad8aaddbe27",
+      "license": "No separate open license identified for underlying NBA broadcast footage."
+    },
+    {
+      "filename": "boston-celtics-new-york-knicks-game-1-q2-10.36-10.32.mp4",
+      "kind": "video",
+      "url": "https://drive.google.com/uc?export=download&id=14DuRHherVUn-CmER3z9oOiroWfkbk7eP",
+      "source_folder": "https://drive.google.com/drive/folders/1eDJYqQ77Fytz15tKGdJCMeYSgmoQ-2-H",
+      "duration_seconds": 3.712,
+      "bytes": 4763755,
+      "sha256": "6825c9ea79e83c63446be5323538091106169fa0cbe8babe17a0bd873293c78e",
+      "license": "No separate open license identified for underlying NBA broadcast footage."
+    }
+  ]
+}

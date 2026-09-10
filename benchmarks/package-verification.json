@@ -1,0 +1,39 @@
+{
+  "test": "Local end-to-end execution with OS-enforced network denial",
+  "sandbox_policy": "(version 1) (allow default) (deny network*)",
+  "network_probe_error": "[Errno 1] Operation not permitted",
+  "stages": [
+    {
+      "stage": "asset_checksums",
+      "returncode": 0,
+      "seconds": 0.10181387500779238
+    },
+    {
+      "stage": "vision",
+      "returncode": 0,
+      "seconds": 7.348742709000362
+    },
+    {
+      "stage": "jerseys",
+      "returncode": 0,
+      "seconds": 14.236165666996385
+    },
+    {
+      "stage": "render",
+      "returncode": 0,
+      "seconds": 1.2617392909887712
+    },
+    {
+      "stage": "decode_check",
+      "returncode": 0,
+      "seconds": 0.0944946660019923
+    }
+  ],
+  "frames": 60,
+  "video_seconds": 2.0,
+  "jersey_tracks": 10,
+  "jersey_candidates": 1,
+  "output_video": "offline-demo.mp4",
+  "success": true,
+  "scope": "Packaged repository scripts: 2-second clip through detector, tracker, court model, local Qwen, H.264 rendering and full decode. Reused already-installed interpreters and downloaded weights, passing their locations explicitly. Fresh dependency installation was not repeated."
+}

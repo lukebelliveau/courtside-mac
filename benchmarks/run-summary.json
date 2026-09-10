@@ -1,0 +1,39 @@
+{
+  "hardware": {
+    "chip": "Apple M3 Ultra",
+    "cpu_cores": 32,
+    "gpu_cores": 80,
+    "unified_memory_gb": 512,
+    "macos": "26.5.2"
+  },
+  "frames": 1701,
+  "video_seconds": 56.699999999999996,
+  "timing": {
+    "load_and_warmup_s": 1.0082058749976568,
+    "analysis_wall_s": 53.456692124993424,
+    "analysis_fps": 31.82015071233159,
+    "detector_fps": 71.46698683354803,
+    "stages_s": {
+      "decode": 0.7562759589927737,
+      "detector": 23.801199342036853,
+      "tracking": 11.60906116096885,
+      "court": 15.423268949467456,
+      "metadata_and_crops": 1.655041830657865
+    }
+  },
+  "memory": {
+    "peak_process_rss_gb": 1.230864384,
+    "peak_mps_driver_gb": 1.404993536,
+    "note": "RSS and Metal allocations may overlap in unified memory; do not add them."
+  },
+  "track_fragments": 131,
+  "player_observations": 16264,
+  "valid_court_frames": 1237,
+  "jersey_tracks_evaluated": 116,
+  "jersey_candidates": 49,
+  "jersey_inference_seconds": 148.40398663195083,
+  "jersey_model_load_seconds": 0.6188296250038547,
+  "jersey_peak_mlx_gb": 6.749491497,
+  "render_and_encode_seconds": 15.808226082997862,
+  "scope": "Original complete ten-clip prototype run before repository packaging. Integration/throughput demonstration; sample clips overlap court training data. Counts are not accuracy scores."
+}

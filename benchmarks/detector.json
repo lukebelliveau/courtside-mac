@@ -1,0 +1,92 @@
+{
+  "device": "mps",
+  "torch": "2.14.0",
+  "sample_frames": 32,
+  "input_shape": [
+    1080,
+    1920,
+    3
+  ],
+  "timing": "predict including preprocessing and postprocessing; synchronized Metal; excludes decode and warmup",
+  "runs": [
+    {
+      "precision": "float32",
+      "batch": 1,
+      "resolution": 704,
+      "load_and_warmup_s": 1.0254379580001114,
+      "frames": 32,
+      "seconds": 0.9969454960373696,
+      "fps": 32.09804360137308,
+      "batch_latency_ms_median": 31.00300000369316,
+      "batch_latency_ms_p95": 34.31474595272448,
+      "mps_allocated_gb": 0.247020544,
+      "mps_driver_gb": 1.35446528,
+      "detections": 509,
+      "players": 332
+    },
+    {
+      "precision": "float32",
+      "batch": 4,
+      "resolution": 704,
+      "load_and_warmup_s": 1.6435952920001,
+      "frames": 32,
+      "seconds": 0.5349397489626426,
+      "fps": 59.81982094629261,
+      "batch_latency_ms_median": 66.70202099485323,
+      "batch_latency_ms_p95": 68.1335182984185,
+      "mps_allocated_gb": 0.372988416,
+      "mps_driver_gb": 1.505476608,
+      "detections": 509,
+      "players": 332,
+      "baseline_player_box_recall_iou_0_8": 1.0
+    },
+    {
+      "precision": "float16",
+      "batch": 1,
+      "resolution": 704,
+      "load_and_warmup_s": 2.546074249999947,
+      "frames": 32,
+      "seconds": 0.7900200839794707,
+      "fps": 40.50529935746741,
+      "batch_latency_ms_median": 24.692270497325808,
+      "batch_latency_ms_p95": 26.888491295540007,
+      "mps_allocated_gb": 0.437287168,
+      "mps_driver_gb": 0.59949056,
+      "detections": 512,
+      "players": 335,
+      "baseline_player_box_recall_iou_0_8": 1.0
+    },
+    {
+      "precision": "float16",
+      "batch": 4,
+      "resolution": 704,
+      "load_and_warmup_s": 1.3477879999991274,
+      "frames": 32,
+      "seconds": 0.4388558319915319,
+      "fps": 72.91688446928846,
+      "batch_latency_ms_median": 55.47562449646648,
+      "batch_latency_ms_p95": 55.93457490176661,
+      "mps_allocated_gb": 0.496605184,
+      "mps_driver_gb": 1.740357632,
+      "detections": 512,
+      "players": 335,
+      "baseline_player_box_recall_iou_0_8": 1.0
+    },
+    {
+      "precision": "float32",
+      "batch": 1,
+      "resolution": 512,
+      "load_and_warmup_s": 0.9725202919944422,
+      "frames": 32,
+      "seconds": 0.7556097079650499,
+      "fps": 42.34990586102969,
+      "batch_latency_ms_median": 23.30768699903274,
+      "batch_latency_ms_p95": 27.979395648435457,
+      "mps_allocated_gb": 0.2475776,
+      "mps_driver_gb": 0.624656384,
+      "detections": 511,
+      "players": 346,
+      "baseline_player_box_recall_iou_0_8": 0.9036144578313253
+    }
+  ]
+}

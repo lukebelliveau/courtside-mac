@@ -1,0 +1,14 @@
+/work/
+/outputs/
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+*.mp4
+*.mov
+*.pth
+*.pt
+*.safetensors
+*.partial

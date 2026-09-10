@@ -1,0 +1,40 @@
+{
+  "test": "Local end-to-end execution with OS-enforced network denial",
+  "sandbox_policy": "(version 1) (allow default) (deny network*)",
+  "network_probe_error": "[Errno 1] Operation not permitted",
+  "stages": [
+    {
+      "stage": "asset_checksums",
+      "returncode": 0,
+      "seconds": 0.14274245798878837
+    },
+    {
+      "stage": "vision",
+      "returncode": 0,
+      "seconds": 8.079878249991452
+    },
+    {
+      "stage": "jerseys",
+      "returncode": 0,
+      "seconds": 13.814743541995995
+    },
+    {
+      "stage": "render",
+      "returncode": 0,
+      "seconds": 0.8221858750039246
+    },
+    {
+      "stage": "decode_check",
+      "returncode": 0,
+      "seconds": 0.09150399999634828
+    }
+  ],
+  "frames": 60,
+  "video_seconds": 2.0,
+  "jersey_tracks": 10,
+  "jersey_candidates": 1,
+  "output_video": "offline-demo.mp4",
+  "success": true,
+  "scope": "2-second clip through the installed detector, tracker, court model, local Qwen model, and H.264 renderer. Existing main demo artifacts preserved.",
+  "publication_note": "Recorded on the original installed prototype before repository packaging. The local output path has been reduced to its filename; source video is not distributed."
+}
