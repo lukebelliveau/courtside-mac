@@ -1,0 +1,32 @@
+{
+  "chosen_file": "playon-mayfield-centennial-18m-60s.mp4",
+  "source_repository": "https://github.com/playon/basketball-analysis-samples",
+  "source_repository_commit": "ef2a474c727ff951683671eb44db941111942c63",
+  "source_readme_url": "https://github.com/playon/basketball-analysis-samples/blob/ef2a474c727ff951683671eb44db941111942c63/readme.md",
+  "source_description": "Mayfield Trojans vs Centennial Hawks high-school basketball; PlayOn public sample for computer-vision and ML proof-of-concept development.",
+  "source_master_playlist": "https://d1l0eyz2lfj4xa.cloudfront.net/playOnPoly/693d86be47fd95f56c93ef98/cloud_hls/0_hd_hls.m3u8",
+  "source_variant_playlist": "https://d1l0eyz2lfj4xa.cloudfront.net/playOnPoly/693d86be47fd95f56c93ef98/cloud_hls/0_hd_hls/0_hd_2000.m3u8",
+  "download_date": "2026-09-10",
+  "selection": {
+    "requested_offset_seconds": 1080,
+    "requested_duration_seconds": 60,
+    "reason": "Different match and source from the original ten Celtics/Knicks tutorial clips. Selected before running any models, after visual inspection only. Free throws in roughly first half followed by live full-court transitions. Earlier 20-minute candidate rejected because it mostly showed a quarter-end timeout.",
+    "uniforms": "white with dark green trim versus dark burgundy/black with yellow trim",
+    "camera": "Elevated sideline broadcast camera; pans across both halves; six-sample contact sheet showed no obvious editorial cut."
+  },
+  "processing": "Video stream copied, no image rescaling or frame-rate conversion; audio omitted. FFmpeg reported a source HLS timestamp discontinuity and corrected it. Saved MP4 subsequently passed full decoded-frame count without decoding errors.",
+  "download_command": "ffmpeg -hide_banner -loglevel warning -ss 1080 -i 'https://d1l0eyz2lfj4xa.cloudfront.net/playOnPoly/693d86be47fd95f56c93ef98/cloud_hls/0_hd_hls/0_hd_2000.m3u8' -t 60 -map 0:v:0 -c:v copy -an -movflags +faststart playon-mayfield-centennial-18m-60s.mp4",
+  "sha256": "ba5f8b7e1ed3b690ab74e88d58fc4a6e961c465b9bfbb8d345490601697dd245",
+  "size_bytes": 39236073,
+  "decoded_frames": 1500,
+  "duration_seconds": 60,
+  "width": 1920,
+  "height": 1080,
+  "fps": 25,
+  "rights_note": "The publisher explicitly offers this sample HLS stream for downloading and computer-vision proof-of-concept development. The inspected repository has no separately stated open-content license. This record is provenance, not a grant to redistribute the video; retain locally for benchmarking and publish source links plus derived timing results rather than bundling footage.",
+  "benchmark_limitations": [
+    "High-school court geometry differs from the NBA geometry assumed by our court mapper; report calibration coverage and do not treat this as court-accuracy validation.",
+    "Uniform colors differ from the original Celtics/Knicks demo; current hardcoded color classification may not transfer.",
+    "This is a fresh timing workload, not a model-accuracy benchmark with ground-truth annotations."
+  ]
+}

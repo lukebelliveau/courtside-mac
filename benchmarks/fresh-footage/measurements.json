@@ -1,0 +1,456 @@
+{
+  "schema": 1,
+  "started_utc": "2026-09-10T19:45:35.363816+00:00",
+  "hardware": {
+    "architecture": "arm64",
+    "macos": "26.5.2",
+    "chip": "Apple M3 Ultra",
+    "cpu_cores": 32,
+    "memory_bytes": 549755813888,
+    "gpus": [
+      {
+        "sppci_model": "Apple M3 Ultra",
+        "sppci_cores": "80"
+      }
+    ]
+  },
+  "source": {
+    "label": "MAYFIELD / CENTENNIAL",
+    "url": "https://github.com/playon/basketball-analysis-samples",
+    "sha256": "ba5f8b7e1ed3b690ab74e88d58fc4a6e961c465b9bfbb8d345490601697dd245",
+    "probe": {
+      "video": {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "25/1",
+        "avg_frame_rate": "25/1",
+        "duration": "60.000000",
+        "nb_frames": "1500",
+        "nb_read_frames": "1500"
+      },
+      "container": {
+        "duration": "60.000000"
+      }
+    }
+  },
+  "application": {
+    "git_revision": "18b43c508777baa852cb60975683693be26452a3",
+    "source_sha256": {
+      "analyze.py": "f23085ac4d1e14d5d421fd80abda9d1908c5dede64610249f2bed771dac9fd2c",
+      "benchmark.py": "3f8ef0baff5d6e648194a92f539ea44479e36a6234a6bac249e82d8353b7d656",
+      "court.py": "bd0cd7676e152e23c7d4108b83d4fe7cdf8c00df7ef55f6968ed1cde768484e8",
+      "vlm_ocr.py": "d70d68179516fa3f31369e2bf9852512d7ca4f025775b6c40fda5dbf16ab4392",
+      "render.py": "a74403d1ba2065addd074908101b4531c712aa51aeb3e1e3888cbf1522050f0e"
+    }
+  },
+  "config": {
+    "batch": 4,
+    "precision": "float16",
+    "detector_resolution": 704,
+    "court_image_size": 960,
+    "limit_seconds": 60.0,
+    "repeats": 3,
+    "device": "MPS",
+    "jersey_model": "mlx-community/Qwen3-VL-8B-Instruct-4bit",
+    "jersey_min_track_frames": 30,
+    "jersey_limit_tracks": 0
+  },
+  "method": [
+    "Each core run is a new Python process using a snapshot of the same application code, existing local weights, and a unique crop/output directory.",
+    "RF-DETR uses three warmup batches before the timed analysis loop. Model files and OS caches can be warm; this is not a cold disk benchmark.",
+    "The existing core analysis timer excludes imports, model loading/warmup, and final metadata writes. External process wall time includes them.",
+    "Detector stage includes color conversion, preprocessing, predict, postprocessing, and explicit torch.mps.synchronize(). Court outputs are transferred to CPU before geometric fitting.",
+    "Per-source-frame stage costs and full pipeline costs are throughput averages, not request latency. Batch size is four.",
+    "Qwen processes selected torso contact sheets, plus up to two verification crops per candidate track; its per-call seconds are not full-frame Astra latency.",
+    "End-to-end process total is core run 1 + one complete Qwen run + render/encode process; it excludes downloads/setup and separate verification.",
+    "Core repeats are sequential. No model warmup or repeated core runs are added to the single-pipeline total beyond core run 1.",
+    "Render resamples to 30fps; throughput denominators use actual analyzed source frame count, not rendered frame count.",
+    "Detection, identity, jersey and calibration accuracy have no ground-truth labels here. Counts and coverage are not accuracy scores.",
+    "Uniform classification is the existing blue/white demo heuristic, unsuitable for arbitrary team colors."
+  ],
+  "core_runs": [
+    {
+      "frames": 1500,
+      "decoded_video_seconds": 60.0,
+      "source_fps": [
+        25.0
+      ],
+      "process_wall_s": 50.59730666599353,
+      "process_wall_ms_per_source_frame": 33.73153777732902,
+      "load_and_warmup_s": 1.0063297080050688,
+      "analysis_wall_s": 44.40234708299977,
+      "analysis_ms_per_source_frame": 29.601564721999846,
+      "analysis_fps": 33.781997992045376,
+      "stages_s": {
+        "decode": 0.5293863230617717,
+        "detector": 20.269952920105425,
+        "tracking": 9.642587446709513,
+        "court": 12.342039747643867,
+        "metadata_and_crops": 1.547660862968769
+      },
+      "stages_ms_per_source_frame": {
+        "decode": 0.35292421537451446,
+        "detector": 13.51330194673695,
+        "tracking": 6.428391631139675,
+        "court": 8.228026498429244,
+        "metadata_and_crops": 1.031773908645846
+      },
+      "unassigned_analysis_loop_overhead_s": 0.0707197825104231,
+      "process_overhead_outside_analysis_and_warmup_s": 5.188629874988692,
+      "scenes": 1,
+      "track_fragments": 63,
+      "player_observations": 11052,
+      "valid_court_frames": 0,
+      "valid_court_fraction": 0.0,
+      "in_court_player_positions": 0,
+      "in_court_player_position_fraction": 0.0,
+      "memory": {
+        "peak_process_rss_gb": 1.146732544,
+        "peak_mps_driver_gb": 1.404928,
+        "note": "RSS and Metal allocations may overlap in unified memory; do not add them."
+      },
+      "run": 1
+    },
+    {
+      "frames": 1500,
+      "decoded_video_seconds": 60.0,
+      "source_fps": [
+        25.0
+      ],
+      "process_wall_s": 48.32969458300795,
+      "process_wall_ms_per_source_frame": 32.219796388671966,
+      "load_and_warmup_s": 0.9597586670133751,
+      "analysis_wall_s": 43.67301875000703,
+      "analysis_ms_per_source_frame": 29.115345833338022,
+      "analysis_fps": 34.34614878779724,
+      "stages_s": {
+        "decode": 0.5290663668129127,
+        "detector": 20.162927106954157,
+        "tracking": 9.40684462194622,
+        "court": 12.017822100009653,
+        "metadata_and_crops": 1.4868075797567144
+      },
+      "stages_ms_per_source_frame": {
+        "decode": 0.3527109112086085,
+        "detector": 13.441951404636105,
+        "tracking": 6.271229747964147,
+        "court": 8.011881400006436,
+        "metadata_and_crops": 0.9912050531711429
+      },
+      "unassigned_analysis_loop_overhead_s": 0.06955097452737391,
+      "process_overhead_outside_analysis_and_warmup_s": 3.696917165987543,
+      "scenes": 1,
+      "track_fragments": 63,
+      "player_observations": 11052,
+      "valid_court_frames": 0,
+      "valid_court_fraction": 0.0,
+      "in_court_player_positions": 0,
+      "in_court_player_position_fraction": 0.0,
+      "memory": {
+        "peak_process_rss_gb": 1.136672768,
+        "peak_mps_driver_gb": 1.404928,
+        "note": "RSS and Metal allocations may overlap in unified memory; do not add them."
+      },
+      "run": 2
+    },
+    {
+      "frames": 1500,
+      "decoded_video_seconds": 60.0,
+      "source_fps": [
+        25.0
+      ],
+      "process_wall_s": 48.070070375004434,
+      "process_wall_ms_per_source_frame": 32.04671358333629,
+      "load_and_warmup_s": 0.9331039160024375,
+      "analysis_wall_s": 43.435759125000914,
+      "analysis_ms_per_source_frame": 28.95717275000061,
+      "analysis_fps": 34.53375813424254,
+      "stages_s": {
+        "decode": 0.5274072159518255,
+        "detector": 20.035641711961944,
+        "tracking": 9.27026342805766,
+        "court": 12.062684047137736,
+        "metadata_and_crops": 1.4709863788884832
+      },
+      "stages_ms_per_source_frame": {
+        "decode": 0.35160481063455035,
+        "detector": 13.357094474641295,
+        "tracking": 6.180175618705107,
+        "court": 8.041789364758491,
+        "metadata_and_crops": 0.9806575859256554
+      },
+      "unassigned_analysis_loop_overhead_s": 0.06877634300326463,
+      "process_overhead_outside_analysis_and_warmup_s": 3.701207334001083,
+      "scenes": 1,
+      "track_fragments": 63,
+      "player_observations": 11052,
+      "valid_court_frames": 0,
+      "valid_court_fraction": 0.0,
+      "in_court_player_positions": 0,
+      "in_court_player_position_fraction": 0.0,
+      "memory": {
+        "peak_process_rss_gb": 1.141014528,
+        "peak_mps_driver_gb": 1.404928,
+        "note": "RSS and Metal allocations may overlap in unified memory; do not add them."
+      },
+      "run": 3
+    }
+  ],
+  "dependencies": {
+    "core": {
+      "torch": "2.14.0",
+      "torchvision": "0.29.0",
+      "rfdetr": "1.10.1",
+      "trackers": "2.6.0",
+      "ultralytics": "8.4.146",
+      "supervision": "0.30.2",
+      "opencv-python": "5.0.0.93",
+      "numpy": "2.5.3"
+    },
+    "ocr": {
+      "mlx": "0.32.2",
+      "mlx-vlm": "0.7.0",
+      "transformers": "5.17.0",
+      "Pillow": "12.3.0"
+    }
+  },
+  "core_repeat_statistics": {
+    "process_wall_s": {
+      "n": 3,
+      "mean": 48.99902387466864,
+      "min": 48.070070375004434,
+      "max": 50.59730666599353,
+      "sample_stdev": 1.390227353035944,
+      "median": 48.32969458300795,
+      "p95": 50.37054545769497
+    },
+    "analysis_wall_s": {
+      "n": 3,
+      "mean": 43.837041652669235,
+      "min": 43.435759125000914,
+      "max": 44.40234708299977,
+      "sample_stdev": 0.5037367413494873,
+      "median": 43.67301875000703,
+      "p95": 44.32941424970049
+    },
+    "analysis_ms_per_source_frame": {
+      "n": 3,
+      "mean": 29.224694435112827,
+      "min": 28.95717275000061,
+      "max": 29.601564721999846,
+      "sample_stdev": 0.33582449423299204,
+      "median": 29.115345833338022,
+      "p95": 29.552942833133663
+    },
+    "analysis_fps": {
+      "n": 3,
+      "mean": 34.22063497136172,
+      "min": 33.781997992045376,
+      "max": 34.53375813424254,
+      "sample_stdev": 0.391281377574032,
+      "median": 34.34614878779724,
+      "p95": 34.51499719959801
+    },
+    "stages_s": {
+      "decode": {
+        "n": 3,
+        "mean": 0.5286199686088366,
+        "min": 0.5274072159518255,
+        "max": 0.5293863230617717,
+        "sample_stdev": 0.001062388702693923,
+        "median": 0.5290663668129127,
+        "p95": 0.5293543274368858
+      },
+      "detector": {
+        "n": 3,
+        "mean": 20.156173913007176,
+        "min": 20.035641711961944,
+        "max": 20.269952920105425,
+        "sample_stdev": 0.11730149098276028,
+        "median": 20.162927106954157,
+        "p95": 20.2592503387903
+      },
+      "tracking": {
+        "n": 3,
+        "mean": 9.439898498904464,
+        "min": 9.27026342805766,
+        "max": 9.642587446709513,
+        "sample_stdev": 0.18834997425734967,
+        "median": 9.40684462194622,
+        "p95": 9.619013164233184
+      },
+      "court": {
+        "n": 3,
+        "mean": 12.140848631597086,
+        "min": 12.017822100009653,
+        "max": 12.342039747643867,
+        "sample_stdev": 0.17567454982763672,
+        "median": 12.062684047137736,
+        "p95": 12.314104177593254
+      },
+      "metadata_and_crops": {
+        "n": 3,
+        "mean": 1.5018182738713222,
+        "min": 1.4709863788884832,
+        "max": 1.547660862968769,
+        "sample_stdev": 0.0404812898830588,
+        "median": 1.4868075797567144,
+        "p95": 1.5415755346475635
+      }
+    },
+    "stages_ms_per_source_frame": {
+      "decode": {
+        "n": 3,
+        "mean": 0.3524133124058911,
+        "min": 0.35160481063455035,
+        "max": 0.35292421537451446,
+        "sample_stdev": 0.0007082591351292676,
+        "median": 0.3527109112086085,
+        "p95": 0.3529028849579239
+      },
+      "detector": {
+        "n": 3,
+        "mean": 13.437449275338118,
+        "min": 13.357094474641295,
+        "max": 13.51330194673695,
+        "sample_stdev": 0.07820099398850747,
+        "median": 13.441951404636105,
+        "p95": 13.506166892526865
+      },
+      "tracking": {
+        "n": 3,
+        "mean": 6.2932656659363095,
+        "min": 6.180175618705107,
+        "max": 6.428391631139675,
+        "sample_stdev": 0.12556664950489982,
+        "median": 6.271229747964147,
+        "p95": 6.412675442822122
+      },
+      "court": {
+        "n": 3,
+        "mean": 8.09389908773139,
+        "min": 8.011881400006436,
+        "max": 8.228026498429244,
+        "sample_stdev": 0.11711636655175747,
+        "median": 8.041789364758491,
+        "p95": 8.209402785062169
+      },
+      "metadata_and_crops": {
+        "n": 3,
+        "mean": 1.0012121825808815,
+        "min": 0.9806575859256554,
+        "max": 1.031773908645846,
+        "sample_stdev": 0.026987526588705867,
+        "median": 0.9912050531711429,
+        "p95": 1.0277170230983756
+      }
+    }
+  },
+  "jerseys": {
+    "process_wall_s": 55.88085258299543,
+    "process_wall_ms_amortized_per_source_frame": 37.253901721996954,
+    "reported_internal_timing": {
+      "wall_seconds": 55.71195699999225,
+      "inference_seconds": 53.23612800199771,
+      "model_load_seconds": 1.145599832991138
+    },
+    "model_load_s": 1.145599832991138,
+    "peak_memory_gb": 6.749491493,
+    "track_fragments_evaluated": 44,
+    "candidate_track_fragments": 19,
+    "abstained_track_fragments": 25,
+    "abstention_reasons": {
+      "insufficient_consensus": 22,
+      "single_crop_check_disagreement": 3
+    },
+    "generation_calls": 88,
+    "contact_sheet_generation_calls": 44,
+    "single_crop_generation_calls": 44,
+    "input_torso_panels_across_contact_sheets": 259,
+    "contact_sheet_generation_seconds": {
+      "n": 44,
+      "mean": 1.0179314148180394,
+      "min": 0.8274670830141986,
+      "max": 1.1453160840028431,
+      "sample_stdev": 0.06403160427352554,
+      "median": 1.0315669374977006,
+      "p95": 1.0874003875054767
+    },
+    "single_crop_generation_seconds": {
+      "n": 44,
+      "mean": 0.19198058522736325,
+      "min": 0.1822794579929905,
+      "max": 0.19954800000414252,
+      "sample_stdev": 0.003858577697188047,
+      "median": 0.19248206249903888,
+      "p95": 0.1960541499982355
+    },
+    "all_generation_call_seconds": {
+      "n": 88,
+      "mean": 0.6049560000227013,
+      "min": 0.1822794579929905,
+      "max": 1.1453160840028431,
+      "sample_stdev": 0.4177832469892428,
+      "median": 0.5135075415091706,
+      "p95": 1.0853038608525822
+    },
+    "track_total_inference_seconds": {
+      "n": 44,
+      "mean": 1.2099120000454027,
+      "min": 0.8274670830141986,
+      "max": 1.5394973759975983,
+      "sample_stdev": 0.23674443990418825,
+      "median": 1.1573872294902685,
+      "p95": 1.474355627708428
+    },
+    "sum_generation_seconds": 53.23612800199771,
+    "contact_sheet_generation_tokens": 1919,
+    "contact_sheet_prompt_tokens": 30012,
+    "single_crop_token_counts": "Not recorded by current application; excluded from token totals."
+  },
+  "render": {
+    "process_wall_s": 14.797089667001273,
+    "internal_render_and_encode_s": 14.663934792013606,
+    "frames": 1800,
+    "fps": 30,
+    "duration_s": 60.0,
+    "process_wall_ms_amortized_per_source_frame": 9.864726444667516
+  },
+  "single_full_pipeline": {
+    "core_run_used": 1,
+    "source_frames": 1500,
+    "decoded_video_seconds": 60.0,
+    "full_process_wall_s": 121.27524891599023,
+    "full_process_wall_ms_amortized_per_source_frame": 80.85016594399349,
+    "source_frames_per_processing_second": 12.368558410785697,
+    "processing_seconds_per_video_second": 2.021254148599837,
+    "sum_existing_internal_timers_s": 114.77823887500563,
+    "sum_existing_internal_timers_ms_amortized_per_source_frame": 76.51882591667042,
+    "explanation": "The internal-timer sum matches the style of the earlier approximate130ms figure. Use full_process_wall for complete process startup-to-exit cost; both are amortized across source video frames, not per-VLM-frame latency."
+  },
+  "verification": {
+    "full_render_decode_exit_code": 0,
+    "full_render_decode_s": 0.6974863330106018,
+    "render_probe": {
+      "video": {
+        "codec_name": "h264",
+        "width": 1600,
+        "height": 900,
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "duration": "60.000000",
+        "nb_frames": "1800",
+        "nb_read_frames": "1800"
+      },
+      "container": {
+        "duration": "60.000000"
+      }
+    },
+    "render_sha256": "2efb33a32a0f7833a13769c137b5f2425afad41924ac5fd7f255215272620cc4",
+    "render_frames_match_metadata": true,
+    "all_core_metadata_rows_match_source_frame_count": true
+  },
+  "workflow_wall_s_including_repeats_and_verification": 223.03618495800765,
+  "finished_utc": "2026-09-10T19:49:23.995756+00:00"
+}

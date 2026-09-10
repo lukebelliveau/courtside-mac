@@ -8,6 +8,8 @@ Inspired by [Piotr Skalski's basketball analysis thread](https://x.com/skalskip9
 
 **Measured on an M3 Ultra:** 56.7 seconds of 1080p basketball processed in 53.46 seconds for detection, tracking and court mapping (**31.8 FPS**). Local jersey reading added about 151 seconds; rendering added 15.81 seconds. See [benchmark results](benchmarks/README.md) for scope, memory measurements and limitations.
 
+**Independent-footage timing check:** three runs on a different 60-second 1080p game averaged **13.44 ms/source frame for detection** and **29.22 ms/source frame for core processing**, with RF-DETR at batch 4. One execution of core, sparse jersey analysis and rendering totaled **121.28 seconds including process startup**. This school-court clip produced **zero valid court calibrations**, with visible detection and team-grouping errors. See the [complete follow-up benchmark](benchmarks/fresh-footage/README.md) for timings, reproducible inputs and why these averages cannot be compared directly with Astra's full-frame latency.
+
 ## Quick start
 
 Requires an Apple Silicon Mac, `uv`, and FFmpeg. Setup creates two isolated Python 3.12 environments and downloads pinned models. The jersey model is approximately 5.4 GiB; allow additional space for Python dependencies, footage and outputs. The tested machine had 512 GB RAM; a minimum supported RAM configuration has not been established.

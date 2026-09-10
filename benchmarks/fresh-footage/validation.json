@@ -1,0 +1,51 @@
+{
+  "artifact_checks": [
+    {
+      "run": 1,
+      "frames": 1500,
+      "negative_track_ids": 0,
+      "duplicate_confirmed_ids_in_frame": 0,
+      "metadata_sha256": "6872c9bbc40eeee4834050b9fd8372d53100be6ebe5174c9448ef9be45f72afd"
+    },
+    {
+      "run": 2,
+      "frames": 1500,
+      "negative_track_ids": 0,
+      "duplicate_confirmed_ids_in_frame": 0,
+      "metadata_sha256": "6872c9bbc40eeee4834050b9fd8372d53100be6ebe5174c9448ef9be45f72afd"
+    },
+    {
+      "run": 3,
+      "frames": 1500,
+      "negative_track_ids": 0,
+      "duplicate_confirmed_ids_in_frame": 0,
+      "metadata_sha256": "6872c9bbc40eeee4834050b9fd8372d53100be6ebe5174c9448ef9be45f72afd"
+    }
+  ],
+  "verification": {
+    "full_render_decode_exit_code": 0,
+    "full_render_decode_s": 0.6974863330106018,
+    "render_probe": {
+      "video": {
+        "codec_name": "h264",
+        "width": 1600,
+        "height": 900,
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "duration": "60.000000",
+        "nb_frames": "1800",
+        "nb_read_frames": "1800"
+      },
+      "container": {
+        "duration": "60.000000"
+      }
+    },
+    "render_sha256": "2efb33a32a0f7833a13769c137b5f2425afad41924ac5fd7f255215272620cc4",
+    "render_frames_match_metadata": true,
+    "all_core_metadata_rows_match_source_frame_count": true
+  },
+  "model_checksums": "Both detector and court weights match assets.json; verified after timed runs.",
+  "source_selection": "Clip selected through visual inspection before running any models; not selected based on speed or output quality.",
+  "quality_spot_check": "Accepted jersey candidates33,1,50,34 supported by sampled contact sheets. A referee is treated as a player and team grouping does not transfer reliably. No ground-truth accuracy score measured.",
+  "privacy": "Published measurements and provenance contain no private workspace paths. Footage and crop images are not bundled in this report."
+}

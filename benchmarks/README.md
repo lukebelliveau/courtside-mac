@@ -1,5 +1,7 @@
 # Measured M3 Ultra run
 
+Follow-up: [three repeated runs on a different basketball game](fresh-footage/README.md), including process-startup timing, sparse-Qwen call counts and observed failures on the new court. The original numbers below remain measurements of the original ten-clip workload.
+
 Recorded on 10 September 2026 on a Mac Studio with M3 Ultra, 32 CPU cores, 80 GPU cores, 512 GB unified memory, macOS 26.5.2. These measurements come from the original prototype before source packaging.
 
 Ten Celtics–Knicks tutorial clips supplied **1,701 decoded frames, 56.7 seconds of video**, at 1920 × 1080 and 30 FPS. Container durations including audio total 57.43 seconds. Source clips are linked in [ASSETS.md](../ASSETS.md) and are not distributed here.
