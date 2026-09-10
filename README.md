@@ -1,3 +1,5 @@
+_note:_ Everything in this repo except for this first line was written by GPT-6 Astra. It is the result of sending Astra [Piotr Skalski's basketball analysis thread](https://x.com/skalskip92/status/2098072972011442316) and asking it to run it on my machine. I haven't even read the code yet.
+
 # Courtside Mac
 
 Local basketball video analysis on Apple Silicon: detect players and the ball, track players within a shot, project positions onto a court, and read tentative jersey numbers. All model inference runs on the Mac using PyTorch MPS and MLX.
